@@ -30,5 +30,5 @@ def chatbot():
         print(f"Bot: {chat_message}")
         messages.append({"role": "assistant", "content": chat_message})
 if __name__ == "__main__":
-    print("Start chatting with the bot (type 'quit' to stop)!")
+    print("Enter three ingredients and I'll suggest a recipe!(type 'quit' to stop)!")
     chatbot()
