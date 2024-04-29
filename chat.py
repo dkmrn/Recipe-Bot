@@ -1,8 +1,7 @@
-from openai import OpenAI
 import os
+from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_AI_KEY"))
-
 
 def chatbot():
     messages = [
@@ -23,12 +22,12 @@ def chatbot():
             
         messages.append({"role": "user", "content": recipePrompt})
 
-        response = client.chat.completions.create(model = "gpt-3.5-turbo",
-        messages=messages)
+        response = client.chat.completions.create(model = "gpt-3.5-turbo", messages=messages)
 
         chat_message = response.choices[0].message.content
         print(f"Bot: {chat_message}")
         messages.append({"role": "assistant", "content": chat_message})
+        
 if __name__ == "__main__":
     print("Enter three ingredients and I'll suggest a recipe!(type 'quit' to stop)!")
     chatbot()
